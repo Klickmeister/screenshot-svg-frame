@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mobile Style Frame</title>
+    <style>
+      body {
+        font-family: system-ui, -apple-system, sans-serif;
+        margin: 0;
+        padding: 20px;
+        background: #f5f5f5;
+      }
+
+      .controls {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+        display: flex;
+        gap: 20px;
+        align-items: center;
+      }
+
+      button {
+        background: #333;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 6px;
+        font-weight: bold;
+        cursor: pointer;
+        white-space: nowrap;
+      }
+
+      button:hover {
+        background: #555;
+      }
+
+      input[type='file'] {
+        width: 100%;
+      }
+
+      input[type='file']::file-selector-button {
+        background: white;
+        border: 1px solid #ddd;
+        padding: 8px 16px;
+        border-radius: 6px;
+        margin-right: 16px;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+
+      input[type='file']::file-selector-button:hover {
+        background: #f5f5f5;
+        border-color: #ccc;
+      }
+
+      .debug-toggle {
+        margin: 20px 0;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .debug .screen-area {
+        stroke: blue;
+        stroke-width: 7;
+        fill: none;
+        pointer-events: none;
+      }
+
+      #svgContainer {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        max-width: 100%;
+        margin: 0 auto;
+        overflow-x: auto;
+      }
+
+      #svgContainer svg {
+        display: block;
+        max-width: 100%;
+        height: auto;
+        margin: 0 auto;
+      }
+      .image-info {
+        white-space: nowrap;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="controls">
+      <button onclick="downloadSVG()">Download SVG</button>
+      <input type="file" id="imageInput" accept="image/*" />
+      <p class="image-info">Aspect-Ratio: 1:1,9</p>
+    </div>
+    <!-- <div class="debug-toggle">
+      <label><input type="checkbox" id="debugToggle" /> Screen-Bereich anzeigen</label>
+    </div> -->
+
+    <div class="svg-wrapper">
+      <div id="svgContainer">
+        <svg
+          width="402"
+          height="777"
+          viewBox="0 0 402 777"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+        >
+          <defs>
+            <clipPath id="clip0_65_2">
+              <rect width="402" height="777" fill="white" />
+            </clipPath>
+          </defs>
+
+          <g>
+            <!-- Weißer Hintergrund -->
+            <path
+              d="M24.9924 51.2916C24.9924 49.0825 26.7833 47.2916 28.9924 47.2916H372.997C375.206 47.2916 376.997 49.0825 376.997 51.2916V711.812C376.997 714.021 375.206 715.812 372.997 715.812H28.9925C26.7833 715.812 24.9924 714.021 24.9924 711.812V51.2916Z"
+              fill="white"
+            />
+
+            <!-- Screenshot Area -->
+            <svg
+              x="24.9924"
+              y="47.2916"
+              width="352.0046"
+              height="668.5204"
+              viewBox="0 0 352.0046 668.5204"
+              preserveAspectRatio="xMidYMin slice"
+            >
+              <image
+                width="100%"
+                height="100%"
+                preserveAspectRatio="xMidYMin slice"
+                xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAQSURBVHgBAQUA+v8AXY39/wYZAudr+hVRAAAAAElFTkSuQmCC"
+              />
+            </svg>
+
+            <!-- Phone frame -->
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M40 0.722656C17.9086 0.722656 0 18.6312 0 40.7226V736.999C0 759.09 17.9086 776.999 40 776.999H362C384.091 776.999 402 759.09 402 736.999V40.7226C402 18.6312 384.091 0.722656 362 0.722656H40ZM24.9924 51.2916C24.9924 49.0825 26.7833 47.2916 28.9924 47.2916H372.997C375.206 47.2916 376.997 49.0825 376.997 51.2916V711.812C376.997 714.021 375.206 715.812 372.997 715.812H28.9925C26.7833 715.812 24.9924 714.021 24.9924 711.812V51.2916Z"
+              fill="white"
+            />
+
+            <mask
+              id="mask0_65_2"
+              style="mask-type: luminance"
+              maskUnits="userSpaceOnUse"
+              x="0"
+              y="0"
+              width="402"
+              height="777"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M40 0.722656C17.9086 0.722656 0 18.6312 0 40.7226V736.999C0 759.09 17.9086 776.999 40 776.999H362C384.091 776.999 402 759.09 402 736.999V40.7226C402 18.6312 384.091 0.722656 362 0.722656H40ZM24.9924 51.2916C24.9924 49.0825 26.7833 47.2916 28.9924 47.2916H372.997C375.206 47.2916 376.997 49.0825 376.997 51.2916V711.812C376.997 714.021 375.206 715.812 372.997 715.812H28.9925C26.7833 715.812 24.9924 714.021 24.9924 711.812V51.2916Z"
+                fill="white"
+              />
+            </mask>
+
+            <g mask="url(#mask0_65_2)">
+              <path
+                d="M5 40.7226C5 21.3927 20.67 5.72266 40 5.72266V-4.27734C15.1472 -4.27734 -5 15.8698 -5 40.7226H5ZM5 736.999V40.7226H-5V736.999H5ZM40 771.999C20.67 771.999 5 756.329 5 736.999H-5C-5 761.852 15.1472 781.999 40 781.999V771.999ZM362 771.999H40V781.999H362V771.999ZM397 736.999C397 756.329 381.33 771.999 362 771.999V781.999C386.853 781.999 407 761.852 407 736.999H397ZM397 40.7226V736.999H407V40.7226H397ZM362 5.72266C381.33 5.72266 397 21.3927 397 40.7226H407C407 15.8698 386.853 -4.27734 362 -4.27734V5.72266ZM40 5.72266H362V-4.27734H40V5.72266ZM28.9924 42.2916C24.0219 42.2916 19.9924 46.321 19.9924 51.2916H29.9924C29.9924 51.8439 29.5447 52.2916 28.9924 52.2916V42.2916ZM372.997 42.2916H28.9924V52.2916H372.997V42.2916ZM381.997 51.2916C381.997 46.321 377.967 42.2916 372.997 42.2916V52.2916C372.444 52.2916 371.997 51.8439 371.997 51.2916H381.997ZM381.997 711.812V51.2916H371.997V711.812H381.997ZM372.997 720.812C377.967 720.812 381.997 716.783 381.997 711.812H371.997C371.997 711.26 372.444 710.812 372.997 710.812V720.812ZM28.9925 720.812H372.997V710.812H28.9925V710.812ZM19.9924 711.812C19.9924 716.783 24.0219 720.812 28.9925 720.812V710.812C29.5447 710.812 29.9924 711.26 29.9924 711.812H19.9924ZM19.9924 51.2916V711.812H29.9924V51.2916H19.9924Z"
+                fill="black"
+              />
+            </g>
+
+            <mask
+              id="mask1_65_2"
+              style="mask-type: luminance"
+              maskUnits="userSpaceOnUse"
+              x="173"
+              y="22"
+              width="56"
+              height="9"
+            >
+              <path
+                d="M226.724 22.6719H175.276C174.171 22.6719 173.276 23.5673 173.276 24.6719V28.7581C173.276 29.8627 174.171 30.7581 175.276 30.7581H226.724C227.829 30.7581 228.724 29.8627 228.724 28.7581V24.6719C228.724 23.5673 227.829 22.6719 226.724 22.6719Z"
+                fill="white"
+              />
+            </mask>
+
+            <g mask="url(#mask1_65_2)">
+              <path
+                d="M226.724 22.6719H175.276C174.171 22.6719 173.276 23.5673 173.276 24.6719V28.7581C173.276 29.8627 174.171 30.7581 175.276 30.7581H226.724C227.829 30.7581 228.724 29.8627 228.724 28.7581V24.6719C228.724 23.5673 227.829 22.6719 226.724 22.6719Z"
+                fill="white"
+                stroke="black"
+                stroke-width="8.08621"
+                stroke-linejoin="round"
+              />
+            </g>
+
+            <!-- Debug rectangle for screen area -->
+            <rect class="screen-area" x="25" y="47" width="352" height="669" style="display: none" />
+          </g>
+        </svg>
+      </div>
+    </div>
+
+    <script>
+      const svgContainer = document.getElementById('svgContainer');
+
+      document.getElementById('imageInput').addEventListener('change', function (e) {
+        const file = e.target.files[0];
+
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = function (event) {
+            const image = document.querySelector('svg image');
+            image.setAttributeNS('http://www.w3.org/1999/xlink', 'href', event.target.result);
+          };
+          reader.readAsDataURL(file);
+        }
+      });
+
+      document.getElementById('debugToggle').addEventListener('change', function (e) {
+        const screenArea = document.querySelector('.screen-area');
+        screenArea.style.display = this.checked ? 'block' : 'none';
+        document.querySelector('#svgContainer').classList.toggle('debug', this.checked);
+      });
+
+      function downloadSVG() {
+        const svgElement = document.querySelector('svg');
+        const svgClone = svgElement.cloneNode(true);
+
+        const serializer = new XMLSerializer();
+        const svgString = serializer.serializeToString(svgClone);
+
+        const blob = new Blob([svgString], { type: 'image/svg+xml;charset=utf-8' });
+
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+
+        const date = new Date();
+        const timestamp = `${date.getFullYear()}${String(date.getMonth() + 1).padStart(2, '0')}${String(
+          date.getDate()
+        ).padStart(2, '0')}_${String(date.getHours()).padStart(2, '0')}${String(date.getMinutes()).padStart(2, '0')}`;
+        link.download = `mobile_frame_${timestamp}.svg`;
+
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+
+        URL.revokeObjectURL(link.href);
+      }
+    </script>
+  </body>
+</html>

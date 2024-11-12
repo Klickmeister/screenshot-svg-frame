@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Desktop Style Frame</title>
+    <style>
+      body {
+        font-family: system-ui, -apple-system, sans-serif;
+        margin: 0;
+        padding: 20px;
+        background: #f5f5f5;
+      }
+
+      .controls {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+        display: flex;
+        gap: 20px;
+        align-items: center;
+      }
+
+      button {
+        background: #333;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 6px;
+        font-weight: bold;
+        cursor: pointer;
+        white-space: nowrap;
+      }
+
+      button:hover {
+        background: #555;
+      }
+
+      input[type='file'] {
+        width: 100%;
+      }
+
+      input[type='file']::file-selector-button {
+        background: white;
+        border: 1px solid #ddd;
+        padding: 8px 16px;
+        border-radius: 6px;
+        margin-right: 16px;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+
+      input[type='file']::file-selector-button:hover {
+        background: #f5f5f5;
+        border-color: #ccc;
+      }
+
+      .debug-toggle {
+        margin: 20px 0;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .debug .screen-area {
+        stroke: blue;
+        stroke-width: 7;
+        fill: none;
+        pointer-events: none;
+      }
+
+      #svgContainer {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        max-width: 100%;
+        margin: 0 auto;
+        overflow-x: auto;
+      }
+
+      #svgContainer svg {
+        display: block;
+        max-width: 100%;
+        height: auto;
+        margin: 0 auto;
+      }
+      .image-info {
+        white-space: nowrap;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="controls">
+      <button onclick="downloadSVG()">Download SVG</button>
+      <input type="file" id="imageInput" accept="image/*" />
+      <p class="image-info">Aspect-Ratio: 1,54:1</p>
+    </div>
+    <!-- <div class="debug-toggle">
+      <label><input type="checkbox" id="debugToggle" /> Screen-Bereich anzeigen</label>
+    </div> -->
+
+    <div class="svg-wrapper">
+      <div id="svgContainer">
+        <svg
+          width="1680"
+          height="1132"
+          viewBox="0 0 1680 1132"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+        >
+          <defs>
+            <clipPath id="clip0_65_43">
+              <rect width="1680" height="1132" fill="white" />
+            </clipPath>
+          </defs>
+
+          <g clip-path="url(#clip0_65_43)">
+            <!-- Inner screen shape that will mask the image -->
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M90 30C83.3726 30 78 35.3726 78 42V1000C78 1006.63 83.3725 1012 90 1012H1578C1584.63 1012 1590 1006.63 1590 1000V42C1590 35.3726 1584.63 30 1578 30H90Z"
+              fill="white"
+            />
+
+            <!-- Screenshot Area -->
+            <svg x="78" y="30" width="1512" height="982" viewBox="0 0 1512 982" preserveAspectRatio="xMidYMin slice">
+              <image
+                width="100%"
+                height="100%"
+                preserveAspectRatio="xMidYMin slice"
+                xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAQSURBVHgBAQUA+v8AXY39/wYZAudr+hVRAAAAAElFTkSuQmCC"
+              />
+            </svg>
+
+            <!-- White frame overlay with rounded corners -->
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M78 0C61.4315 0 48 13.4315 48 30V1042C48 1058.57 61.4315 1072 78 1072H1590C1606.57 1072 1620 1058.57 1620 1042V30C1620 13.4315 1606.57 0 1590 0H78ZM90 30C83.3726 30 78 35.3726 78 42V1000C78 1006.63 83.3725 1012 90 1012H1578C1584.63 1012 1590 1006.63 1590 1000V42C1590 35.3726 1584.63 30 1578 30H90Z"
+              fill="white"
+              fill-opacity="0.2"
+            />
+
+            <!-- Borders -->
+            <mask
+              id="mask0_65_43"
+              style="mask-type: luminance"
+              maskUnits="userSpaceOnUse"
+              x="48"
+              y="0"
+              width="1572"
+              height="1072"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M78 0C61.4315 0 48 13.4315 48 30V1042C48 1058.57 61.4315 1072 78 1072H1590C1606.57 1072 1620 1058.57 1620 1042V30C1620 13.4315 1606.57 0 1590 0H78ZM90 30C83.3726 30 78 35.3726 78 42V1000C78 1006.63 83.3725 1012 90 1012H1578C1584.63 1012 1590 1006.63 1590 1000V42C1590 35.3726 1584.63 30 1578 30H90Z"
+                fill="white"
+              />
+            </mask>
+            <g mask="url(#mask0_65_43)">
+              <path
+                d="M53 30C53 16.1929 64.1929 5 78 5V-5C58.67 -5 43 10.6701 43 30H53ZM53 1042V30H43V1042H53ZM78 1067C64.1929 1067 53 1055.81 53 1042H43C43 1061.33 58.67 1077 78 1077V1067ZM1590 1067H78V1077H1590V1067ZM1615 1042C1615 1055.81 1603.81 1067 1590 1067V1077C1609.33 1077 1625 1061.33 1625 1042H1615ZM1615 30V1042H1625V30H1615ZM1590 5C1603.81 5 1615 16.1929 1615 30H1625C1625 10.67 1609.33 -5 1590 -5V5ZM78 5H1590V-5H78V5ZM83 42C83 38.134 86.134 35 90 35V25C80.6112 25 73 32.6112 73 42H83ZM83 1000V42H73V1000H83ZM90 1007C86.134 1007 83 1003.87 83 1000H73C73 1009.39 80.6111 1017 90 1017V1007ZM1578 1007H90V1017H1578V1007ZM1585 1000C1585 1003.87 1581.87 1007 1578 1007V1017C1587.39 1017 1595 1009.39 1595 1000H1585ZM1585 42V1000H1595V42H1585ZM1578 35C1581.87 35 1585 38.134 1585 42H1595C1595 32.6112 1587.39 25 1578 25V35ZM90 35H1578V25H90V35Z"
+                fill="black"
+              />
+            </g>
+
+            <!-- Stand -->
+            <path
+              d="M2.5 1044.5H1677.5V1092C1677.5 1112.71 1660.71 1129.5 1640 1129.5H40C19.2894 1129.5 2.5 1112.71 2.5 1092V1044.5Z"
+              fill="white"
+              stroke="black"
+              stroke-width="5"
+            />
+            <path
+              d="M734 1042H934V1052C934 1057.52 929.523 1062 924 1062H744C738.477 1062 734 1057.52 734 1052V1042Z"
+              fill="black"
+            />
+
+            <!-- Debug rectangle for screen area -->
+            <rect class="screen-area" x="78" y="30" width="1512" height="982" style="display: none" />
+          </g>
+        </svg>
+      </div>
+    </div>
+
+    <script>
+      const svgContainer = document.getElementById('svgContainer');
+
+      document.getElementById('imageInput').addEventListener('change', function (e) {
+        const file = e.target.files[0];
+
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = function (event) {
+            const image = document.querySelector('svg image');
+            image.setAttributeNS('http://www.w3.org/1999/xlink', 'href', event.target.result);
+          };
+          reader.readAsDataURL(file);
+        }
+      });
+
+      document.getElementById('debugToggle').addEventListener('change', function (e) {
+        const screenArea = document.querySelector('.screen-area');
+        screenArea.style.display = this.checked ? 'block' : 'none';
+        document.querySelector('#svgContainer').classList.toggle('debug', this.checked);
+      });
+
+      function downloadSVG() {
+        const svgElement = document.querySelector('svg');
+        const svgClone = svgElement.cloneNode(true);
+
+        const serializer = new XMLSerializer();
+        const svgString = serializer.serializeToString(svgClone);
+
+        const blob = new Blob([svgString], { type: 'image/svg+xml;charset=utf-8' });
+
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+
+        const date = new Date();
+        const timestamp = `${date.getFullYear()}${String(date.getMonth() + 1).padStart(2, '0')}${String(
+          date.getDate()
+        ).padStart(2, '0')}_${String(date.getHours()).padStart(2, '0')}${String(date.getMinutes()).padStart(2, '0')}`;
+        link.download = `desktop_frame_${timestamp}.svg`;
+
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+
+        URL.revokeObjectURL(link.href);
+      }
+    </script>
+  </body>
+</html>
